@@ -1,8 +1,8 @@
 CXX				= c++
 CXXFLAGS		= -Wall -Wextra -Werror -std=c++98 
 RM				= rm -fr
-INC				= whatever.hpp
-NAME			= FewFunctions
+INC				= Iter.hpp
+NAME			= Iter
 
 SOURCES			= main.cpp 
 

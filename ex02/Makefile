@@ -1,10 +1,10 @@
 CXX				= c++
 CXXFLAGS		= -Wall -Wextra -Werror -std=c++98 
 RM				= rm -fr
-INC				= whatever.hpp
-NAME			= FewFunctions
+INC				= Array.hpp
+NAME			= Array
 
-SOURCES			= main.cpp 
+SOURCES			= main.cpp
 
 SOURCES_O		= $(SOURCES:.cpp=.o)
 
