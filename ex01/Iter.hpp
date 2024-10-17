@@ -3,12 +3,11 @@
 #include <iostream>
 #include <cmath>
 
-/*
-template < typename T >
-void	function(T & number) {
-	number + 2;
-}*/
 
+template < typename T >
+void	fAdd(T & n) {
+	n += 2;
+}
 
 template < typename Tarray, typename Tfunc>
 void	iter(Tarray *aAddr, int aLength, Tfunc aFunction) {
