@@ -13,14 +13,14 @@ class Array{
 
 	public:
 		Array( void ): Arr(NULL), aSize(0){};
-		Array( unsigned int size ): Arr(new A[size]), aSize(size){};
-		Array(const Array &a): aSize(a.size())
+		Array( unsigned int ): Arr(new A[size]), aSize(size){};
+		Array(const Array & ): aSize(a.size())
 		{
 			std::cout << "Copy Constuctor created" << std::endl;
 			this->Arr = NULL;
 			*this = a;
 		};
-		Array& operator=( const Array<A> &a ){
+		Array& operator=( const Array<A> & ){
 			std::cout << "Assignment operator called" << std::endl;
 			if (this->Arr != NULL)
 				delete [] this->Arr;
@@ -41,7 +41,7 @@ class Array{
 
 	int	size( void ) const{return (this->aSize);};
 	
-	A &operator[]( unsigned int i )
+	A &operator[]( unsigned int )
 	{
 		if (i >= this->aSize || this->Arr == NULL)
 			throw (OutOfBoundsException());
