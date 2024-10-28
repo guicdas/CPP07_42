@@ -8,29 +8,28 @@
 template < typename A >
 class Array{
 	private:
-		A				*Arr;
 		unsigned int	aSize;
+		A				*Arr;
 
 	public:
 		Array( void ): Arr(NULL), aSize(0){};
 		Array( unsigned int ): Arr(new A[size]), aSize(size){};
-		Array(const Array & ): aSize(a.size())
+		Array( Array const & ): aSize(a.size())
 		{
 			std::cout << "Copy Constuctor created" << std::endl;
 			this->Arr = NULL;
 			*this = a;
 		};
-		Array& operator=( const Array<A> & ){
+		Array& operator=( Array const & ){
 			std::cout << "Assignment operator called" << std::endl;
 			if (this->Arr != NULL)
 				delete [] this->Arr;
-			if (a.size() != 0)
-			{
-				this->aSize = a.size();
-				this->Arr = new A[this->aSize];
-				for (int i = 0; i < this->size() ; i++)
-					this->Arr[i] = a.Arr[i];
-			}
+			if (a.size() == 0)
+				return (*this);
+			this->aSize = a.size();
+			this->Arr = new A[this->aSize];
+			for (int i = 0; i < this->size() ; i++)
+				this->Arr[i] = a.Arr[i];
 			return (*this);
 		};
 		~Array( void ){
@@ -39,9 +38,11 @@ class Array{
 				delete [] this->Arr;
 		};
 
-	int	size( void ) const{return (this->aSize);};
+	int	size( void ) const{
+		return (this->aSize);
+	};
 	
-	A &operator[]( unsigned int )
+	A	&operator[]( unsigned int )
 	{
 		if (i >= this->aSize || this->Arr == NULL)
 			throw (OutOfBoundsException());
